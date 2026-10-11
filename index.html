@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Roll With It! 🎀</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;700;800;900&display=swap');
+
+:root {
+
+  --cream: #fff9ef;
+
+  --pink: #ff83b5;
+
+  --hot: #ed4d94;
+
+  --pale: #ffe4ef;
+
+  --ink: #783c60;
+
+}
+
+* { box-sizing: border-box; }
+
+body {
+
+  margin: 0;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 24px 16px;
+
+  font-family: 'Nunito', sans-serif;
+
+  color: var(--ink);
+
+  background-color: var(--cream);
+
+  background-image: radial-gradient(#ffc5dc 1.5px, transparent 1.5px);
+
+  background-size: 22px 22px;
+
+  overflow-x: hidden;
+
+}
+
+.sparkle {
+
+  position: fixed;
+
+  color: var(--hot);
+
+  font-size: 30px;
+
+  animation: float 3s ease-in-out infinite;
+
+  pointer-events: none;
+
+}
+
+.s1 { top: 12%; left: 9%; }
+
+.s2 { top: 19%; right: 10%; animation-delay: .7s; }
+
+.s3 { bottom: 14%; left: 12%; animation-delay: 1s; }
+
+.s4 { bottom: 17%; right: 9%; animation-delay: .4s; }
+
+@keyframes float {
+
+  50% { transform: translateY(-12px) rotate(12deg); }
+
+}
+
+.card {
+
+  width: 100%;
+
+  max-width: 420px;
+
+  padding: 32px 24px 26px;
+
+  text-align: center;
+
+  position: relative;
+
+  background: rgba(255,255,255,.91);
+
+  border: 3px solid white;
+
+  border-radius: 32px;
+
+  box-shadow: 0 9px 0 #f4c2d7, 0 18px 40px #d98caf35;
+
+}
+
+.sticker {
+
+  display: inline-block;
+
+  padding: 7px 13px;
+
+  border: 1px solid #ffc1d9;
+
+  border-radius: 30px;
+
+  background: #fff0f6;
+
+  color: #dc4c8b;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.5px;
+
+}
+
+h1 {
+
+  margin: 18px 0 7px;
+
+  font-family: 'Fredoka', sans-serif;
+
+  font-size: clamp(42px, 11vw, 55px);
+
+  line-height: 1.05;
+
+  color: var(--hot);
+
+  text-shadow: 2px 3px 0 #ffd5e6;
+
+}
+
+.subtitle {
+
+  margin: 12px 0 24px;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  color: #a57891;
+
+}
+
+.dice-stage {
+
+  height: 195px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  perspective: 700px;
+
+}
+
+.die {
+
+  width: 130px;
+
+  height: 130px;
+
+  display: grid;
+
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+
+  gap: 7px;
+
+  padding: 19px;
+
+  position: relative;
+
+  border: 3px solid white;
+
+  border-radius: 27px;
+
+  background: linear-gradient(145deg, #ffd9e9 0%, #ff9dc6 45%, #f45298 100%);
+
+  box-shadow:
+
+    inset 5px 5px 10px #ffffffbd,
+
+    inset -6px -7px 12px #cf347565,
+
+    0 9px 0 #d83b80,
+
+    0 17px 25px #e85a9960;
+
+  transform: rotate(-5deg);
+
+}
+
+.die::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 7px;
+
+  left: 14px;
+
+  width: 58%;
+
+  height: 22%;
+
+  border-radius: 50%;
+
+  background: #ffffff91;
+
+  filter: blur(5px);
+
+  transform: rotate(-22deg);
+
+  pointer-events: none;
+
+}
+
+.pip {
+
+  width: 17px;
+
+  height: 17px;
+
+  align-self: center;
+
+  justify-self: center;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle at 30% 25%, #fff, #fff8fb 65%, #ffe0ed);
+
+  box-shadow: 1px 3px 3px #ba2b6c66;
+
+}
+
+.rolling {
+
+  animation: roll .65s ease-in-out;
+
+}
+
+@keyframes roll {
+
+  0% { transform: rotate(-5deg) scale(1); }
+
+  25% { transform: rotate(90deg) scale(.9); }
+
+  60% { transform: rotate(300deg) scale(1.08); }
+
+  100% { transform: rotate(355deg) scale(1); }
+
+}
+
+.result {
+
+  min-height: 37px;
+
+  margin-top: 23px;
+
+  font-family: 'Fredoka', sans-serif;
+
+  font-size: 24px;
+
+  font-weight: 600;
+
+  color: var(--hot);
+
+}
+
+button {
+
+  width: 100%;
+
+  margin-top: 13px;
+
+  padding: 16px 12px;
+
+  border: 2px solid white;
+
+  border-radius: 18px;
+
+  background: linear-gradient(180deg, #ffa5ca, #f45499);
+
+  box-shadow: 0 6px 0 #d7387d, 0 9px 14px #e85a9933;
+
+  color: white;
+
+  font-family: 'Fredoka', sans-serif;
+
+  font-size: 20px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+
+  cursor: pointer;
+
+  transition: transform .12s, box-shadow .12s;
+
+}
+
+button:active {
+
+  transform: translateY(4px);
+
+  box-shadow: 0 2px 0 #d7387d;
+
+}
+
+button:disabled {
+
+  opacity: .75;
+
+  cursor: wait;
+
+}
+
+.hint {
+
+  margin: 22px 0 0;
+
+  color: #bd8ba2;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+}
+
+.footer {
+
+  margin-top: 11px;
+
+  color: #df83ad;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.8px;
+
+}
+
+@media (max-width: 360px) {
+
+  .card { padding: 27px 17px; }
+
+  .die { width: 120px; height: 120px; }
+
+  .pip { width: 15px; height: 15px; }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *, *::before, *::after {
+
+    animation-duration: .01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<span class="sparkle s1">✦</span>
+
+<span class="sparkle s2">♡</span>
+
+<span class="sparkle s3">✧</span>
+
+<span class="sparkle s4">♥</span>
+
+<main class="card">
+
+  <div class="sticker">✿ YOUR LUCKY LITTLE CORNER ✿</div>
+
+  <h1>Roll With It!</h1>
+
+  <p class="subtitle">Can't decide? Let the dice decide. ♡</p>
+
+  <div class="dice-stage">
+
+    <div class="die" id="die" role="img" aria-label="Dice showing 1">
+
+      <span class="pip"></span>
+
+      <span class="pip"></span>
+
+      <span class="pip"></span>
+
+      <span class="pip"></span>
+
+      <span class="pip"></span>
+
+      <span class="pip"></span>
+
+      <span class="pip"></span>
+
+      <span class="pip"></span>
+
+      <span class="pip"></span>
+
+    </div>
+
+  </div>
+
+  <div class="result" id="result" aria-live="polite">
+
+    Ready when you are! ♡
+
+  </div>
+
+  <button id="rollButton" type="button">✧ ROLL AGAIN ✧</button>
+
+  <p class="hint">Big decisions, tiny dice. 🎀</p>
+
+  <div class="footer">MADE WITH ♡ AND A LITTLE LUCK</div>
+
+</main>
+
+<script>
+
+const die = document.getElementById('die');
+
+const pips = Array.from(die.querySelectorAll('.pip'));
+
+const result = document.getElementById('result');
+
+const button = document.getElementById('rollButton');
+
+const patterns = {
+
+  1: [4],
+
+  2: [0, 8],
+
+  3: [0, 4, 8],
+
+  4: [0, 2, 6, 8],
+
+  5: [0, 2, 4, 6, 8],
+
+  6: [0, 2, 3, 5, 6, 8]
+
+};
+
+function showFace(number) {
+
+  pips.forEach((pip, index) => {
+
+    pip.style.opacity = patterns[number].includes(index) ? '1' : '0';
+
+  });
+
+  die.setAttribute('aria-label', 'Dice showing ' + number);
+
+}
+
+function rollDice() {
+
+  if (button.disabled) return;
+
+  button.disabled = true;
+
+  result.textContent = 'Rolling, rolling... ✨';
+
+  die.classList.remove('rolling');
+
+  void die.offsetWidth;
+
+  die.classList.add('rolling');
+
+  const number = Math.floor(Math.random() * 6) + 1;
+
+  setTimeout(() => {
+
+    showFace(number);
+
+    result.textContent = 'You rolled a ' + number + '! ♡';
+
+    die.classList.remove('rolling');
+
+    button.disabled = false;
+
+  }, 650);
+
+}
+
+showFace(1);
+
+button.addEventListener('click', rollDice);
+
+</script>
+
+</body>
+
+</html>
